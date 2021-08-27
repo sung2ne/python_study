@@ -13,7 +13,7 @@ con = sqlite3.connect("standard_tall.db")
 
 # 남자
 boy = pd.read_html("https://www.foodsafetykorea.go.kr/portal/healthyfoodlife/bmiCalcurator.do?menu_no=3071&menu_grp=MENU_NEW03", header=1)[0]
-boy = boy.rename(columns={"연령(세)": "age", "저체중": "level1", "정상체중": "level2", "과체중": "level3", "비만": "level4"})
+boy = boy.rename(columns={"연령(세)": "age", "저체중": "v1", "정상체중": "v2", "과체중": "v3", "비만": "v4"})
 boy["age"] = boy["age"].str.replace("1\)", "")
 boy["v1"] = boy["v1"].str.replace("결과 < ", " ")
 boy["v2"] = boy["v2"].str.split(" ≤\t결과 < ").str[1]
